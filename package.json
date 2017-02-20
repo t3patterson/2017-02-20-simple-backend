@@ -9,6 +9,7 @@
     "server-dev": "NODE_ENV=development nodemon server.js",
     "webpack-watcher": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "gen-seed-data" : "NODE_ENV=development node ./src-server/db/seed.js",
     "set-project-name" : "node ./src-server/cli/setProjectName.js"
   },
   "author": "",

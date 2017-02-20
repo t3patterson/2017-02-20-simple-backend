@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const chalk = require('chalk')
 
 function establishDbConnection (dbUrl){
 	return new Promise(function(resolve, reject){
@@ -9,13 +10,16 @@ function establishDbConnection (dbUrl){
 	})
 }
 
-function connectToDB(projectName){
+function connectToDB(projectName, cb){
       console.log('running db-setup')
       let dbLocation = `mongodb://localhost/${projectName}_dev`
       if (process.env.NODE_ENV !== "development") dbLocation = process.env.MONGODB_URI
-		  
-      establishDbConnection(dbLocation)
-			.then( (x) => {console.log(chalk.green(`----  connected to ${x}`)) })
+		console.log(chalk.gray(`----  establishing connection: ${dbLocation}`))
+      return establishDbConnection(dbLocation)
+			.then( (x) => {
+					console.log(chalk.green(`----  connected to ${x}`)) 
+					if(typeof cb === 'function') cb()
+			})
 			.catch( (x) => {console.log(chalk.red(`db connection error: `, x)) })
 }
 
