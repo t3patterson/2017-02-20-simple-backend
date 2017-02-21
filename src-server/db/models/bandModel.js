@@ -7,14 +7,14 @@ const Schema = mongoose.Schema;
 // ----------------------
 const bandSchema = new Schema({
   // example of optional fields
-  country:        { type: String, required: true },
-  artist:  			{ type: String, required: true},
-  bandMembers:    { type: Number,  required: true },
-  bookingCost:    { type: Number, required: true },
+  country:        { type: String,  },
+  artist:  			{ type: String, },
+  bandMembers:    { type: Number,   },
+  bookingCost:    { type: Number,  },
   agentName:      { type: String },
   albumArt:       { type: String  },
   createdAt:      { type: Date,  required: true, default: Date.now() } ,
-  onTour:         { type: Boolean, required: true, default: false }
+  onTour:         { type: Boolean, default: false }
 })
 
 

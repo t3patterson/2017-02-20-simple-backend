@@ -116,7 +116,7 @@ connectToDB(PROJECT_NAME, (err, result)=>{
 	 	dataRecord.onTour = Math.random() > .5 ? true : false 
 
       let bandRecord = new Band(dataRecord)
-		bandRecord.save(bandRecord, (err, savedRecord)=>{
+		bandRecord.save((err, savedRecord)=>{
 			if (err) console.log(err)
 			console.log('saved: ' + savedRecord._id )
 		 }) 

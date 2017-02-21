@@ -1,1 +1,1 @@
-module.exports = 'the-sweetness'
+module.exports = 'restful-demo'
